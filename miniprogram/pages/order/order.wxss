@@ -1,0 +1,112 @@
+/* pages/order/order.wxss */
+
+.container{
+  width:100%;
+  /* 消除顶部部分空白 */
+  padding:0px; 
+}
+
+.lists {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  /* background-color: rgb(248, 202, 202); */
+}
+
+.list-item-bg {
+  /* 保证每条item不会被后面的覆盖，必须设置为相对布局 */
+  position: relative;
+  width: 100%;
+  height: 150rpx;
+  margin-top: 10rpx;
+  display: flex;
+  border: 1rpx;
+  background-color: rgb(230, 230, 230);
+}
+
+
+.customer-wrap {
+  position: absolute;
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.customer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  background-color: #00B358;
+  color:#eee;
+  font-size: 30rpx;
+  line-height:33rpx;
+  letter-spacing: 3rpx;
+  font-weight: bold;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*
+.customer {
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  border-radius: 50rpx;
+    //以下三行使得内容水平居中 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // 以下一行使得内容垂直居中 
+  align-items: center;
+  background-color: #00B358;
+  color:#eee;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+*/
+
+.operation {
+  position: absolute;
+  width:120rpx;
+  height: 100%;
+  float: right;
+  right: 10rpx;
+    /* 以下三行使得内容水平居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 以下一行使得内容垂直居中 */
+  align-items: center;
+  /* background-color: #00B358; */
+  color: #000;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.contact-info {
+  position: absolute;
+  height: 100%;
+  margin-top: 15rpx;
+  margin-left: 150rpx;
+  margin-right: 150rpx;
+  font-size: 30rpx;
+  /* 以下三行使得内容水平居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.address .phone{
+  position: absolute;
+  background-color: #aaa;
+}

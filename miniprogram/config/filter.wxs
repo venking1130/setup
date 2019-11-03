@@ -1,0 +1,16 @@
+// filter.wxs
+var imageFormat = function (string) {
+  var images = string.split(',');
+  return images[0];
+}
+var moneyFormat = function (money) {
+  return money.toFixed(2);
+}
+
+/*
+ * 导出
+ */
+module.exports = {
+  imageFormat: imageFormat,
+  moneyFormat: moneyFormat
+}

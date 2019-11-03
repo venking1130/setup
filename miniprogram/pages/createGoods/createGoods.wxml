@@ -1,0 +1,154 @@
+<!--miniprogram/pages/createGoods/createGoods.wxml-->
+<!-- 引入.wxs文件 src为相对路径，module指定当前模块的名称 -->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+
+<view class="container">
+  <view class="goods-search">
+    <view class="search">
+      <view class="df search_arr">
+        <icon class="searchcion" size='20' type='search'></icon>
+        <input class="" placeholder="产品信息" bindinput="bindKeyInput"/>
+      </view>
+    </view>
+    <label class='sousuo' bindtap="searchGoods">搜索</label>
+  </view>
+
+  <view class="form" hidden="{{!hasHidden}}">
+    <form class="form-wrap" bindsubmit="formSubmit" bindreset="formReset">
+      <view class="goods-head">
+        <view class="goods goods-brand">
+          <view class="title goods-brand-title">品牌名称</view>
+          <view class="input">
+              <input name="goodsName" maxlength="15" placeholder="木林森照明" required="required"></input>
+          </view>
+        </view>
+      
+        <view class="goods goods-style">
+          <view class="title goods-style-title">产品风格</view>
+          <picker bindchange="goodsStyleChange" value="{{goodsStyleIdx}}" range="{{goodsStyle}}">
+            <view class="input">
+              <input name="goodsStyle" disabled maxlength="15" value="{{goodsStyle[goodsStyleIdx]}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="goods goods-type">
+          <view class="title goods-type-title">类型</view>
+          <picker bindchange="goodsTypeChange" value="{{goodsTypeIdx}}" range="{{goodsType}}">
+            <view class="input">
+              <input name="goodsType" disabled maxlength="15" value="{{goodsType[goodsTypeIdx]}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="goods goods-light">
+          <view class="title goods-light-title">光源类型</view>
+          <picker bindchange="goodsLightChange" value="{{goodsLightIdx}}" range="{{goodsLight}}">
+            <view class="input">
+              <input name="goodsLight" disabled maxlength="15" value="{{goodsLight[goodsLightIdx]}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="goods goods-install-price">
+          <view class="title goods-install-price-title">安装费用</view>
+          <view class="input">
+            <input name="goodsInstallPrice" maxlength="30" placeholder="2" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-model">
+          <view class="title goods-model-title">识别码/型号</view>
+          <view class="input">
+            <input name="goodsModel" maxlength="30" placeholder="J-S梅花" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-addtion">
+          <view class="title goods-addtion-title">材质/颜色</view>
+          <view class="input">
+            <input name="goodsAddtion" maxlength="30" placeholder="锌合金白色" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-size">
+          <view class="title goods-size-title">尺寸/D*W*H(MM)</view>
+          <view class="input">
+            <input name="goodsSize" maxlength="30" placeholder="D1100*W600*H750" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-space">
+          <view class="title goods-space-title">搭配空间</view>
+          <view class="input">
+            <input name="goodsSpace" maxlength="30" placeholder="客厅" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-number">
+          <view class="title goods-number-title">灯具数量</view>
+          <view class="input">
+            <input name="goodsNumber" maxlength="30" placeholder="2" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-first-cost">
+          <view class="title goods-first-cost-title">成本</view>
+          <view class="input">
+            <input name="goodsFirstCost" maxlength="30" placeholder="2" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-price">
+          <view class="title goods-price-title">单价</view>
+          <view class="input">
+            <input name="goodsPrice" maxlength="30" placeholder="2" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-remark">
+          <view class="title goods-remark-title">备注</view>
+          <view class="input">
+            <input name="goodsRemark" maxlength="60" placeholder="可定制" required="required"></input>
+          </view>
+        </view>
+
+        <view class="goods goods-uploader-image">
+          <view class="title goods-uploader-image-title">图片</view>
+          <button class="add-image" bindtap="addImage">添加</button>
+          <view class="input uploader-container-wrap">
+            <view class="uploader-container">
+              <view class="uploader-list" wx:for="{{goodsImageUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+                <view class="uploader-wrap">
+                  <image class="uploader-image" src="{{item.path}}" mode="aspectFit" bindtap="previewImg" bindlongpress="deleteImage" data-info="{{idx}}"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <input name="goodsImages" disabled="true" maxlength="500" hidden="true" value="{{goodsImageUrl}}"></input>
+        </view>
+        
+      </view>
+      <view class="btn-area">
+        <button class="submit" formType="submit">提交</button>
+        <button class="reset" formType="reset">重置</button>
+      </view>
+    </form>
+  </view>
+
+  <view class="goods-list" hidden="{{hasHidden}}">
+    <view class="for-list" wx:for="{{goodsDatas}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+      <view class="list-item-bg">
+        <view class="list-item">
+          <view class="goods-wrap" data-goods="{{item}}" bindtap="selectedGoods">
+            <image class="goods-image" src="{{filter.imageFormat(item.goodsImages)}}"></image>
+          </view>
+          <view class="goods-info">
+            <view class="goods-title"><text class="title-txt">{{item.goodsName}}{{item.goodsStyle}}{{item.goodsType}}</text></view>
+            <view class="goods-detail"><text class="detail-txt">{{item.goodsModel}}{{item.goodsAddtion}}{{item.goodsSize}}</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

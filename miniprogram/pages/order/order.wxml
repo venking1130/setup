@@ -1,0 +1,36 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <view class="lists">
+    <view class="for-list" wx:for="{{orderDatas}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+      <view class="list-item-bg">
+        <view class="list-item">
+          <view class="customer-wrap">
+            <button class="customer" >{{item.orderCustomer}}</button>
+          </view>
+          <view class="operation-tap" data-info="{{item}}" bindtap="toOrderDetail">
+          <!-- orderState: ["待选产品", "待下单", "待收货", "待安装", "待处理", "待收款"],  -->
+            <view wx:if="{{item.orderState === '待下单'}}">
+              <view class="operation" style="background-color:red">{{item.orderState}}</view>
+            </view>
+            <view wx:elif="{{item.orderState === '待收货'}}">
+              <view class="operation" style="background-color:orchid">{{item.orderState}}</view>
+            </view>
+            <view wx:elif="{{item.orderState === '待安装'}}">
+              <view class="operation" style="background-color:yellow">{{item.orderState}}</view>
+            </view>
+            <view wx:elif="{{item.orderState === '待处理'}}">
+              <view class="operation" style="background-color:coral">{{item.orderState}}</view>
+            </view>
+            <view wx:else>
+              <view class="operation" style="background-color:white">{{item.orderState}}</view>
+            </view>
+          </view>
+          <view class="contact-info">
+            <view class="address">{{item.installAddress}}</view>
+            <view class="phone">{{item.phone}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

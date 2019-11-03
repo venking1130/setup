@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/createInfo/createInfo",
+    "pages/createCustomer/createCustomer",
+    "pages/createOrder/createOrder",
+    "pages/createGoods/createGoods"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#080808",
+    "navigationBarTitleText": "小小活雷锋",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#000000",
+    "borderStyle": "black",
+    "color": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单管理"
+      },
+      {
+        "pagePath": "pages/createInfo/createInfo",
+        "text": "点我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

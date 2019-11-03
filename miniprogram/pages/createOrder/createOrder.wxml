@@ -1,0 +1,123 @@
+<!--miniprogram/pages/createOrder/createOrder.wxml-->
+<view class="container">
+  <view class="customer-search">
+    <view class="search">
+      <view class="df search_arr">
+        <icon class="searchcion" size='20' type='search'></icon>
+        <input class="" placeholder="请输入关键字" bindinput="bindKeyInput"/>
+      </view>
+    </view>
+    <label class='sousuo' bindtap="searchCustomer">搜索</label>
+  </view>
+
+  <view class="form" hidden="{{!hasHidden}}">
+    <form class="form-wrap" bindsubmit="formSubmit" bindreset="formReset">
+      <view class="order-head">
+        <view class="order order-customer-id" hidden="true">
+          <view class="title order-custome-id-title">客户标识</view>
+          <view class="input">
+              <input name="orderCustomerID" disabled maxlength="80" value="{{orderCustomerID}}"></input>
+          </view>
+        </view>
+
+        <view class="order order-customer">
+          <view class="title order-custome-title">客户名称</view>
+          <view class="input">
+              <text style="white-space:nowrap">{{orderCustomerName}}</text>
+          </view>
+        </view>
+      
+        <view class="order order-date">
+          <view class="title order-date-title">订单日期</view>
+          <picker mode="date" value="{{orderDate}}" start="2015-09-01" end="2999-12-31" bindchange="orderDateChange">
+            <view class="input">
+              <input name="orderDate" disabled maxlength="10" type='number' placeholder="2019-06-01" value="{{orderDate}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="order order-install-date">
+          <view class="title order-install-date-title">预安装日期</view>
+          <picker mode="date" value="{{preInstallDate}}" start="2015-09-01" end="2999-12-31" bindchange="preInstallDateChange">
+            <view class="input">
+              <input name="preInstallDate" disabled maxlength="10" type='number' placeholder="2019-06-01" value="{{preInstallDate}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="order order-type">
+          <view class="title order-type-title">订单类型</view>
+          <picker bindchange="orderTypeChange" value="{{orderTypeIdx}}" range="{{orderType}}">
+            <view class="input">
+              <input name="orderType" disabled maxlength="5" value="{{orderType[orderTypeIdx]}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="order order-install-address">
+          <view class="title order-install-address-title">安装地址（详细到门牌-开门密码）</view>
+          <view class="input">
+            <input name="orderInstallAddress" maxlength="50" placeholder="平安街1号1楼1室" required="required"></input>
+          </view>
+        </view>
+
+        <view class="order order-earnest">
+          <view class="title order-earnest-title">定金（不可退）</view>
+          <view class="input">
+            <input name="orderEarnest" maxlength="50" type='digit' placeholder="8000.00" required="required"></input>
+          </view>
+        </view>
+
+        <view class="order order-state">
+          <view class="title order-state-title">订单状态</view>
+          <picker bindchange="orderStateChange" value="{{orderStateIdx}}" range="{{orderState}}">
+            <view class="input">
+              <input name="orderState" disabled maxlength="5" value="{{orderState[orderStateIdx]}}" required="required"></input>
+            </view>
+          </picker>
+        </view>
+
+        <view class="order order-uploader-image">
+          <view class="title order-uploader-image-title">图片</view>
+          <button class="add-image" bindtap="addImage">添加</button>
+          <view class="input uploader-container-wrap">
+            <view class="uploader-container">
+              <view class="uploader-list" wx:for="{{orderImageUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+                <view class="uploader-wrap">
+                  <image class="uploader-image" src="{{item}}" mode="aspectFit" bindtap="previewImg" bindlongpress="deleteImage" data-info="{{idx}}"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order order-remark">
+          <view class="title order-remark-title">备注</view>
+          <view class="input">
+            <input name="orderRemark" maxlength="50" placeholder="" required="required"></input>
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button class="submit" formType="submit">提交</button>
+        <button class="reset" formType="reset">重置</button>
+      </view>
+      </form>
+    </view>
+
+    <view class="customer-list" hidden="{{hasHidden}}">
+      <view class="for-list" wx:for="{{customerObject}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+        <view class="list-item-bg">
+          <view class="list-item">
+            <view class="customer-wrap" data-customer="{{item}}" bindtap="selectedCustomer">
+              <button class="customer" >{{item.customer}}</button>
+            </view>
+            <view class="contact-info">
+              <view class="address"><text class="address-txt">{{item.address}}</text></view>
+              <view class="phone"><text class="phone-txt">{{item.phone}}</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

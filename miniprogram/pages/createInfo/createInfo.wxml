@@ -1,0 +1,17 @@
+<!--miniprogram/pages/createInfo/createInfo.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+  <view class="create-info">
+    <view class="item-wrap create-customer">
+      <button class="item create-info-customer" bindtap="tapCreateCustomer">新增客户信息</button>
+    </view>
+
+    <view class="item-wrap create-order">
+      <button class="item create-info-order" bindtap="tapCreateOrder">新增订单信息</button>
+    </view>
+
+    <view class="item-wrap goods-info">
+      <button class="item create-info-goods" bindtap="tapCreateGoods">新增产品信息</button>
+    </view>
+  </view>
+</view>

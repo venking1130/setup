@@ -1,0 +1,67 @@
+/* miniprogram/pages/createCustomer/createCustomer.wxss */
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.btn-area {
+  width: 100%;
+  height: 150rpx;
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.submit, .reset {
+  width: 200rpx;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.submit {
+  position: absolute;
+  float: left;
+  left: 100rpx;
+}
+
+.reset {
+  position: absolute;
+  float: right;
+  right: 100rpx;
+}
+
+.form-wrap, .form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.customer {
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.input {
+  position: absolute;
+  width: 730rpx;
+  margin-bottom: 0rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  padding-left: 20rpx;
+}
+
+.title {
+  position: relative;
+  width: 100%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}

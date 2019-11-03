@@ -1,0 +1,270 @@
+/* miniprogram/pages/createOrder/createOrder.wxss */
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.btn-area {
+  width: 100%;
+  height: 150rpx;
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.submit, .reset {
+  width: 200rpx;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.submit {
+  position: absolute;
+  float: left;
+  left: 100rpx;
+}
+
+.reset {
+  position: absolute;
+  float: right;
+  right: 100rpx;
+}
+
+.form-wrap, .form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.order {
+  position: relative;
+  width: 100%;
+  height: 120rpx;
+  margin-top: 20rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.input {
+  position: absolute;
+  width: 730rpx;
+  margin-bottom: 0rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  padding-left: 20rpx;
+  color: rgb(44, 226, 90);
+}
+
+.title {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: rgb(11, 65, 31);
+}
+
+.customer-search {
+  position: relative;
+  width: 100%;
+  margin-top: 10rpx;
+  display: flex;
+}
+
+.search{
+  width: 80%;
+}
+
+.search_arr {
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.search_arr input{
+  margin-left: 60rpx;
+  height: 60rpx;
+  border-radius: 5px;
+}
+
+.bc_text {
+  line-height: 68rpx;
+  height: 68rpx;
+  margin-top: 34rpx;
+}
+ 
+.sousuo {
+  margin-left: 15rpx;
+  width: 15%;
+  line-height: 150%;
+  text-align: center;
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+}
+
+.page_row{
+  display: flex;
+  flex-direction: row
+}
+
+.searchcion {
+  margin: 10rpx 10rpx 10rpx 10rpx;
+  position: absolute;
+  left:25rpx;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.customer-list {
+  position: absolute;
+  float: left;
+  width:100%;
+  height: auto;
+  top: 80rpx;
+  /* background-color: rgba(122, 235, 99, 0.5); */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  z-index: 1;
+}
+
+.list-item-bg {
+  /* 保证每条item不会被后面的覆盖，必须设置为相对布局 */
+  position: relative;
+  width: 100%;
+  height: 150rpx;
+  margin-top: 10rpx;
+  display: flex;
+  border: 1rpx;
+  background-color: rgb(230, 230, 230);
+}
+
+.list-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 0rpx;
+  margin-left: 0rpx;
+  /* background-color: rgba(240, 78, 78, 0.8) */
+}
+
+.customer, .address, .phone{
+  position: relative;
+  float: left;
+    /* 以下三行使得内容水平居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 以下一行使得内容垂直居中 */
+  align-items: center;
+}
+
+.customer-wrap {
+  position: absolute;
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.customer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  background-color: #00B358;
+  color:#eee;
+  font-size: 30rpx;
+  line-height:33rpx;
+  letter-spacing: 3rpx;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.contact-info {
+  position: absolute;
+  height: 100%;
+  width: 590rpx;
+  margin-left: 150rpx;
+  font-size: 30rpx;
+  /* 以下三行使得内容水平居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.address, .phone{
+  position: relative;
+  height: 50%;
+  width: 100%;
+  white-space: pre-line;
+}
+
+.address-txt, .phone-txt {
+  width: 100%;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+.add-image {
+  position: absolute;
+  top: 2rpx;
+  right: 10rpx;
+  float: right;
+  width: 150rpx;
+  height: 55rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 35rpx;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  line-height: 55rpx; 
+  background-color: rgb(53, 218, 240);
+}
+
+.order-uploader-image {
+  height: 220rpx;
+}
+
+.uploader-container-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.uploader-container {
+  position: absolute;
+  width: 100%;
+  height: 165rpx;
+  float: left;
+  left: 0rpx;
+  top: 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-grow: 1;
+}
+
+.uploader-wrap {
+  position: relative;
+  width:250rpx;
+  height: 140rpx;
+  top: 0rpx;
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.uploader-image {
+  position: absolute;
+  top: -10rpx;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,32 @@
+<!--miniprogram/pages/createCustomer/createCustomer.wxml-->
+<view class="container">
+<view class="form">
+  <form class="form-wrap" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="customer customer-name">
+      <view class="title customer-name-title">客户姓名</view>
+      <view class="input">
+        <input name="customerName" maxlength="10" placeholder="张三" required="required"></input>
+      </view>
+    </view>
+
+    <view class="customer customer-phone">
+      <view class="title customer-phone-title">联系方式</view>
+      <view class="input">
+        <input name="customerPhone" maxlength="15" placeholder="188 8888 8888" required="required"></input>
+      </view>
+    </view>
+
+    <view class="customer customer-address">
+      <view class="title customer-address-title">客户地址</view>
+      <view class="input">
+        <input name="customerAddress" maxlength="50" placeholder="平安街1号1楼1室" required="required"></input>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button class="submit" formType="submit">提交</button>
+      <button class="reset" formType="reset">重置</button>
+    </view>
+  </form>
+  </view>
+</view>

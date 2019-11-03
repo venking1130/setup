@@ -1,0 +1,53 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="goods-list">
+    <block class="for-list" wx:for="{{detailData}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+      <view class="list-item-bg">
+        <view class="list-item">
+          <view class="goods-img">
+            <image class="goods-picture" src="{{item.picture}}"></image>
+          </view>
+          <view class="item-state-tap" data-info="{{item.code}}" bindtap="toOrderDetailInfo">
+            <view class="goods-total">
+              <text>{{item.room}}</text>
+              <text>￥{{item.numbers*item.discount}}</text>
+              <view wx:if="{{item.state === '待下单'}}">
+                <text class="goods-state" style="color:red">{{item.state}}</text>
+              </view>
+              <view wx:elif="{{item.state === '待收货'}}">
+                <text class="goods-state" style="color:orchid">{{item.state}}</text>
+              </view>
+              <view wx:elif="{{item.state === '待安装'}}">
+                <text class="goods-state" style="color:yellow">{{item.state}}</text>
+              </view>
+              <view wx:elif="{{item.state === '待处理'}}">
+                <text class="goods-state" style="color:coral">{{item.state}}</text>
+              </view>
+              <view wx:else>
+                <text class="goods-state" style="color:white">{{item.state}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="goods-detail">
+            <view class="goods-param">
+              <view class="goods-name">{{item.goodsName}}{{item.type}}</view>
+              <view class="goods-specs">{{item.specs}}</view>
+              <view class="goods-name">{{item.color}}</view>
+            </view>
+            <view class="goods-variable">
+              <view class="goods-discount">
+                <text class="discount">优惠价￥{{item.discount}}</text>
+              </view>
+              <view class="goods-prics">
+                <text class="prics">原价￥{{item.prics}}</text>
+              </view>
+              <view class="goods-numbers">
+                <text class="numbers">共{{item.numbers}}{{item.unit}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
